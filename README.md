@@ -1,5 +1,7 @@
 # graphql-news
-This is example how to use grapqhql-go
+This is example how to crud using grapqhql-go 
+- graphql-go
+- postgresql
 
 ## Setting up database
 ```
@@ -18,4 +20,50 @@ CREATE TABLE authors (
 	CONSTRAINT author_pk PRIMARY KEY (author_id),
 	CONSTRAINT author_un UNIQUE (email)
 );
+```
+
+## Update dependencies
+```
+go get github.com/graphql-go/graphql
+go get github.com/graphql-go/handler
+go get github.com/lib/pq
+```
+
+## usage
+Access `localhost:8081/graphql`
+
+Query to get the all authors
+```
+query {
+  authors {
+    author_id
+    name
+    email
+  }
+}
+```
+
+Query to get single author
+```
+query {
+  author(author_id:1) {
+    author_id
+    name
+    email
+  }
+}
+```
+
+Query to insert news
+```
+mutation {
+  insert_news(body: "ini tulisan dalemnya", title: "ini titlenya cuy", author_id:1) {
+    body
+    author {
+      author_id
+      email
+    }
+  }
+}
+
 ```
