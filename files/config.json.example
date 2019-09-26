@@ -1,0 +1,11 @@
+{ 
+    "app_name":"GrahphQL News",
+    "database":"graphql_test",
+    "host":"172.18.0.1",
+    "port":"5432",
+    "username":"",
+    "password":"",
+    "ssl_mode":"disable",
+    "search_path":"public",
+    "debug":true
+ }
